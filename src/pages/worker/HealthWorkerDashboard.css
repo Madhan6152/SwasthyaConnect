@@ -1,0 +1,923 @@
+/* =========================================================
+   Health Worker Dashboard
+   SwasthyaConnect
+   Matches current HealthWorkerDashboard.jsx
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.health-worker-dashboard {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #172033;
+  font-family: Inter, Arial, sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.health-worker-header {
+  height: 78px;
+  background: #ffffff;
+  border-bottom: 1px solid #e7eaf0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.health-worker-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.health-worker-logo {
+  width: 42px;
+  height: 42px;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.health-worker-header-left h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.health-worker-header-left span {
+  display: block;
+  margin-top: 3px;
+  color: #98a2b3;
+  font-size: 11px;
+}
+
+.health-worker-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.health-worker-notification {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 7px;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.health-worker-notification:hover {
+  background: #f5f7fb;
+  border-radius: 8px;
+}
+
+.health-worker-notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 20px;
+  background: #ef4444;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.health-worker-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.health-worker-avatar {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 50%;
+  background: #e8f1ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.health-worker-profile strong {
+  display: block;
+  color: #172033;
+  font-size: 12px;
+}
+
+.health-worker-profile span {
+  display: block;
+  margin-top: 3px;
+  color: #98a2b3;
+  font-size: 10px;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.health-worker-navigation {
+  height: 54px;
+  background: #ffffff;
+  border-bottom: 1px solid #e7eaf0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 32px;
+  overflow-x: auto;
+}
+
+.health-worker-navigation button {
+  height: 54px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: #667085;
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.health-worker-navigation button:hover {
+  color: #2563eb;
+  background: #f8faff;
+}
+
+.health-worker-navigation button.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+  font-weight: 600;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.health-worker-main {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* =========================================================
+   WELCOME
+   ========================================================= */
+
+.health-worker-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.health-worker-welcome h1 {
+  margin: 0 0 7px;
+  color: #172033;
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.health-worker-welcome p {
+  margin: 0;
+  color: #667085;
+  font-size: 14px;
+}
+
+.health-worker-date {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 9px;
+  padding: 11px 15px;
+  color: #4b5565;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.health-worker-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.health-worker-stat-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 13px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04);
+  transition: 0.2s ease;
+}
+
+.health-worker-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(16, 24, 40, 0.08);
+}
+
+.health-worker-stat-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  background: #eaf1ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.health-worker-stat-card span {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+}
+
+.health-worker-stat-card strong {
+  display: block;
+  margin-top: 5px;
+  color: #172033;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.health-worker-stat-card small {
+  display: block;
+  margin-top: 4px;
+  color: #16a05d;
+  font-size: 10px;
+}
+
+/* =========================================================
+   CONTENT GRID
+   ========================================================= */
+
+.health-worker-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.health-worker-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04);
+  margin-bottom: 20px;
+}
+
+.health-worker-content-grid .health-worker-card {
+  margin-bottom: 0;
+}
+
+.health-worker-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.health-worker-card-header h2 {
+  margin: 0 0 5px;
+  color: #172033;
+  font-size: 18px;
+}
+
+.health-worker-card-header p {
+  margin: 0;
+  color: #8a94a6;
+  font-size: 12px;
+}
+
+.health-worker-view-all {
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  padding: 4px 0;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.health-worker-view-all:hover {
+  color: #1d4ed8;
+}
+
+/* =========================================================
+   TODAY'S VISITS
+   ========================================================= */
+
+.health-worker-visits-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.health-worker-visit-row {
+  display: grid;
+  grid-template-columns: 90px minmax(180px, 1fr) auto auto;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 0;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.health-worker-visit-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.visit-time strong {
+  display: block;
+  color: #172033;
+  font-size: 13px;
+}
+
+.visit-time span {
+  display: block;
+  margin-top: 4px;
+  color: #98a2b3;
+  font-size: 10px;
+}
+
+.visit-patient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.visit-patient-avatar {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 50%;
+  background: #e8f1ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.visit-patient > div:last-child {
+  min-width: 0;
+}
+
+.visit-patient strong {
+  display: block;
+  color: #172033;
+  font-size: 12px;
+}
+
+.visit-patient span {
+  display: block;
+  margin-top: 3px;
+  color: #8a94a6;
+  font-size: 10px;
+}
+
+.visit-patient small {
+  display: block;
+  margin-top: 3px;
+  color: #667085;
+  font-size: 10px;
+}
+
+.visit-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.visit-status.scheduled {
+  background: #e4f8ed;
+  color: #16804b;
+}
+
+.visit-status.pending {
+  background: #fff4dc;
+  color: #c27a00;
+}
+
+.visit-status.completed {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.visit-action-button {
+  border: 1px solid #d9e4ff;
+  background: #f5f8ff;
+  color: #2563eb;
+  border-radius: 7px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.visit-action-button:hover {
+  background: #e8f1ff;
+}
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.health-worker-quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.health-worker-quick-actions > button {
+  width: 100%;
+  border: 1px solid #edf0f4;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.health-worker-quick-actions > button:hover {
+  background: #f8faff;
+  border-color: #d9e4ff;
+  transform: translateX(2px);
+}
+
+.health-worker-quick-actions > button > span {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  background: #eaf1ff;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+}
+
+.health-worker-quick-actions > button:nth-child(2) > span {
+  background: #e5f8ee;
+}
+
+.health-worker-quick-actions > button:nth-child(3) > span {
+  background: #f0e9ff;
+}
+
+.health-worker-quick-actions > button:nth-child(4) > span {
+  background: #fff0df;
+}
+
+.health-worker-quick-actions > button div {
+  flex: 1;
+  min-width: 0;
+}
+
+.health-worker-quick-actions strong {
+  display: block;
+  color: #172033;
+  font-size: 12px;
+}
+
+.health-worker-quick-actions small {
+  display: block;
+  margin-top: 3px;
+  color: #8a94a6;
+  font-size: 10px;
+}
+
+/* =========================================================
+   PATIENT REQUESTS
+   ========================================================= */
+
+.health-worker-requests-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.health-worker-request-row {
+  display: grid;
+  grid-template-columns: 40px minmax(180px, 1fr) auto auto auto;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 0;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.health-worker-request-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.request-icon {
+  width: 36px;
+  height: 36px;
+  background: #f0f4ff;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.request-information {
+  min-width: 0;
+}
+
+.request-information > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.request-information strong {
+  color: #172033;
+  font-size: 12px;
+}
+
+.request-information > div span {
+  color: #98a2b3;
+  font-size: 9px;
+}
+
+.request-information p {
+  margin: 5px 0 0;
+  color: #8a94a6;
+  font-size: 10px;
+}
+
+.request-priority,
+.request-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.request-priority.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.request-priority.normal {
+  background: #f3f4f6;
+  color: #667085;
+}
+
+.request-status.pending {
+  background: #fff4dc;
+  color: #c27a00;
+}
+
+.request-status.in-progress {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.request-view-button {
+  border: 1px solid #d9e4ff;
+  background: #f5f8ff;
+  color: #2563eb;
+  border-radius: 7px;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.request-view-button:hover {
+  background: #e8f1ff;
+}
+
+/* =========================================================
+   PATIENT TABLE
+   ========================================================= */
+
+.health-worker-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.health-worker-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.health-worker-table th {
+  padding: 11px 12px;
+  text-align: left;
+  color: #8a94a6;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #edf0f4;
+  white-space: nowrap;
+}
+
+.health-worker-table td {
+  padding: 13px 12px;
+  color: #4b5565;
+  font-size: 12px;
+  border-bottom: 1px solid #f0f2f5;
+  vertical-align: middle;
+}
+
+.health-worker-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-patient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.table-patient-avatar {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border-radius: 50%;
+  background: #e8f1ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.table-patient strong {
+  display: block;
+  color: #172033;
+  font-size: 12px;
+}
+
+.table-patient span {
+  display: block;
+  margin-top: 3px;
+  color: #98a2b3;
+  font-size: 10px;
+}
+
+.patient-view-button {
+  border: 1px solid #d9e4ff;
+  background: #f5f8ff;
+  color: #2563eb;
+  border-radius: 7px;
+  padding: 7px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.patient-view-button:hover {
+  background: #e8f1ff;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.health-worker-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 5px 25px;
+  color: #98a2b3;
+  font-size: 11px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .health-worker-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .health-worker-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 850px) {
+  .health-worker-header {
+    padding: 0 20px;
+  }
+
+  .health-worker-navigation {
+    padding: 0 20px;
+  }
+
+  .health-worker-main {
+    padding: 22px 20px;
+  }
+
+  .health-worker-request-row {
+    grid-template-columns: 40px minmax(150px, 1fr) auto auto;
+  }
+
+  .request-view-button {
+    grid-column: 4;
+  }
+}
+
+@media (max-width: 650px) {
+  .health-worker-header {
+    height: auto;
+    min-height: 75px;
+    padding: 14px 15px;
+  }
+
+  .health-worker-header-right {
+    gap: 10px;
+  }
+
+  .health-worker-profile > div:last-child {
+    display: none;
+  }
+
+  .health-worker-navigation {
+    padding: 0 10px;
+  }
+
+  .health-worker-navigation button {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .health-worker-main {
+    padding: 18px 15px;
+  }
+
+  .health-worker-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .health-worker-welcome h1 {
+    font-size: 23px;
+  }
+
+  .health-worker-date {
+    width: 100%;
+  }
+
+  .health-worker-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .health-worker-card {
+    padding: 17px;
+  }
+
+  .health-worker-visit-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .visit-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .visit-time span {
+    margin-top: 0;
+  }
+
+  .visit-status {
+    width: fit-content;
+  }
+
+  .visit-action-button {
+    width: fit-content;
+  }
+
+  .health-worker-request-row {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .request-priority,
+  .request-status {
+    width: fit-content;
+  }
+
+  .request-priority {
+    grid-column: 2;
+  }
+
+  .request-status {
+    grid-column: 2;
+  }
+
+  .request-view-button {
+    grid-column: 2;
+    width: fit-content;
+  }
+
+  .health-worker-card-header {
+    flex-direction: column;
+  }
+
+  .health-worker-view-all {
+    align-self: flex-start;
+  }
+
+  .health-worker-footer {
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .health-worker-logo {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+    font-size: 19px;
+  }
+
+  .health-worker-header-left h2 {
+    font-size: 16px;
+  }
+
+  .health-worker-header-left span {
+    font-size: 9px;
+  }
+
+  .health-worker-welcome h1 {
+    font-size: 21px;
+  }
+
+  .health-worker-stat-card {
+    padding: 16px;
+  }
+
+  .health-worker-stat-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+}

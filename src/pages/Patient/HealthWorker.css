@@ -1,0 +1,900 @@
+/* =========================================================
+   PATIENT HEALTH WORKER PAGE
+   ========================================================= */
+
+.patient-health-worker-page,
+.patient-health-worker-page * {
+  box-sizing: border-box;
+}
+
+.patient-health-worker-page {
+  min-height: 100vh;
+
+  padding: 32px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8fbff 0%,
+      #f4f7fb 100%
+    );
+
+  color: #172033;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.patient-health-worker-header {
+  width: min(1380px, 100%);
+
+  margin: 0 auto 25px;
+
+  padding: 28px 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4eaf2;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 4px 18px rgba(30, 64, 175, 0.04);
+}
+
+.patient-health-worker-header h1 {
+  margin: 20px 0 7px;
+
+  color: #14213d;
+
+  font-size: 30px;
+
+  font-weight: 750;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.6px;
+}
+
+.patient-health-worker-header p {
+  margin: 0;
+
+  color: #6b778c;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.patient-health-worker-back {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding: 9px 15px;
+
+  border: 1px solid #cfe0ff;
+
+  border-radius: 9px;
+
+  background: #f0f6ff;
+
+  color: #2563eb;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.patient-health-worker-back:hover {
+  background: #e5efff;
+
+  border-color: #b6d0ff;
+
+  transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   COUNT
+   ========================================================= */
+
+.patient-health-worker-count {
+  min-width: 140px;
+
+  padding: 17px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  border: 1px solid #dbe7ff;
+
+  border-radius: 12px;
+
+  background: #f5f8ff;
+
+  text-align: center;
+}
+
+.patient-health-worker-count strong {
+  color: #2563eb;
+
+  font-size: 25px;
+
+  font-weight: 750;
+
+  line-height: 1;
+}
+
+.patient-health-worker-count span {
+  margin-top: 6px;
+
+  color: #6b778c;
+
+  font-size: 11px;
+
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   SEARCH & FILTER
+   ========================================================= */
+
+.patient-health-worker-controls {
+  width: min(1380px, 100%);
+
+  margin: 0 auto 27px;
+
+  padding: 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    230px;
+
+  gap: 15px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4eaf2;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 4px 16px rgba(30, 64, 175, 0.035);
+}
+
+
+/* Search */
+
+.patient-health-worker-search {
+  position: relative;
+
+  width: 100%;
+
+  height: 47px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.patient-health-worker-search span {
+  position: absolute;
+
+  left: 16px;
+
+  z-index: 2;
+
+  font-size: 15px;
+
+  pointer-events: none;
+}
+
+.patient-health-worker-search input {
+  width: 100%;
+
+  height: 47px;
+
+  padding: 0 15px 0 44px;
+
+  border: 1px solid #d8e0eb;
+
+  border-radius: 10px;
+
+  background: #fbfcfe;
+
+  color: #172033;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.patient-health-worker-search input::placeholder {
+  color: #9aa6b8;
+}
+
+.patient-health-worker-search input:hover {
+  border-color: #c4cfdd;
+
+  background: #ffffff;
+}
+
+.patient-health-worker-search input:focus {
+  border-color: #70a7ff;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* Filter */
+
+.patient-health-worker-filter {
+  width: 100%;
+
+  height: 47px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d8e0eb;
+
+  border-radius: 10px;
+
+  background: #fbfcfe;
+
+  color: #344054;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 550;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.patient-health-worker-filter:focus {
+  border-color: #70a7ff;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+.patient-health-worker-results {
+  width: min(1380px, 100%);
+
+  margin: 0 auto 17px;
+}
+
+.patient-health-worker-results h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 20px;
+
+  font-weight: 750;
+}
+
+.patient-health-worker-results p {
+  margin: 5px 0 0;
+
+  color: #718096;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.patient-health-worker-grid {
+  width: min(1380px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.patient-health-worker-card {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 23px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ef;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.045);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.patient-health-worker-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #60a5fa
+    );
+
+  opacity: 0;
+}
+
+.patient-health-worker-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #cbdcf8;
+
+  box-shadow:
+    0 14px 30px rgba(37, 99, 235, 0.09);
+}
+
+.patient-health-worker-card:hover::before {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.patient-health-worker-card-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #edf1f6;
+}
+
+.patient-health-worker-profile {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.patient-health-worker-avatar {
+  flex: 0 0 auto;
+
+  width: 64px;
+
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #c9dcff;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eef5ff,
+      #dbeafe
+    );
+
+  color: #1d4ed8;
+
+  font-size: 16px;
+
+  font-weight: 750;
+
+  box-shadow:
+    inset 0 0 0 5px rgba(255,255,255,0.5),
+    0 3px 9px rgba(37,99,235,0.08);
+}
+
+.patient-health-worker-name {
+  min-width: 0;
+}
+
+.patient-health-worker-name h3 {
+  margin: 0;
+
+  color: #162033;
+
+  font-size: 16px;
+
+  font-weight: 750;
+
+  line-height: 1.35;
+
+  overflow-wrap: anywhere;
+}
+
+.patient-health-worker-name p {
+  margin: 5px 0 0;
+
+  color: #2563eb;
+
+  font-size: 11px;
+
+  font-weight: 650;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.patient-health-worker-status {
+  flex: 0 0 auto;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 9px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.patient-health-worker-status.available {
+  background: #f0fdf4;
+
+  border: 1px solid #d9f4e2;
+
+  color: #15803d;
+}
+
+.patient-health-worker-status.busy {
+  background: #fff7ed;
+
+  border: 1px solid #fde3c1;
+
+  color: #c2410c;
+}
+
+.patient-health-worker-status-dot {
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.patient-health-worker-details {
+  padding: 17px 0 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  border-bottom: 1px solid #edf1f6;
+}
+
+.patient-health-worker-detail-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+.patient-health-worker-detail-icon {
+  width: 31px;
+
+  height: 31px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #f1f6ff;
+
+  font-size: 13px;
+}
+
+.patient-health-worker-detail-row div {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.patient-health-worker-detail-row small {
+  color: #8a96a8;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.4px;
+}
+
+.patient-health-worker-detail-row strong {
+  color: #344054;
+
+  font-size: 12px;
+
+  font-weight: 650;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.patient-health-worker-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+.patient-health-worker-profile-button,
+.patient-health-worker-contact-button {
+  min-height: 40px;
+
+  padding: 9px 12px;
+
+  border-radius: 9px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.patient-health-worker-profile-button {
+  border: 1px solid #d6e1ef;
+
+  background: #ffffff;
+
+  color: #344054;
+}
+
+.patient-health-worker-profile-button:hover {
+  background: #f8fafc;
+
+  transform: translateY(-1px);
+}
+
+.patient-health-worker-contact-button {
+  border: 1px solid #2563eb;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 4px 9px rgba(37,99,235,0.14);
+}
+
+.patient-health-worker-contact-button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #1d4ed8,
+      #1e40af
+    );
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 15px rgba(37,99,235,0.20);
+}
+
+
+/* =========================================================
+   NO RESULTS
+   ========================================================= */
+
+.patient-no-health-workers {
+  width: min(1380px, 100%);
+
+  margin: 0 auto;
+
+  padding: 70px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ef;
+
+  border-radius: 18px;
+
+  text-align: center;
+}
+
+.patient-no-health-worker-icon {
+  width: 62px;
+
+  height: 62px;
+
+  margin: 0 auto 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f2f7ff;
+
+  border: 1px solid #d7e5ff;
+
+  font-size: 22px;
+}
+
+.patient-no-health-workers h3 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 18px;
+}
+
+.patient-no-health-workers p {
+  margin: 8px 0 17px;
+
+  color: #718096;
+
+  font-size: 13px;
+}
+
+.patient-no-health-workers button {
+  padding: 9px 15px;
+
+  border: 1px solid #cfe0ff;
+
+  border-radius: 8px;
+
+  background: #f0f6ff;
+
+  color: #2563eb;
+
+  font-family: inherit;
+
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1150px) {
+  .patient-health-worker-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+
+  .patient-health-worker-page {
+    padding: 24px 18px 35px;
+  }
+
+  .patient-health-worker-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 23px;
+  }
+
+  .patient-health-worker-header h1 {
+    font-size: 26px;
+  }
+
+  .patient-health-worker-count {
+    width: 100%;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+  }
+
+  .patient-health-worker-count span {
+    margin-top: 0;
+  }
+
+  .patient-health-worker-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-health-worker-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .patient-health-worker-page {
+    padding: 16px 13px 28px;
+  }
+
+  .patient-health-worker-header {
+    padding: 19px;
+
+    border-radius: 14px;
+  }
+
+  .patient-health-worker-header h1 {
+    font-size: 23px;
+  }
+
+  .patient-health-worker-header p {
+    font-size: 12px;
+  }
+
+  .patient-health-worker-card {
+    padding: 18px;
+
+    border-radius: 15px;
+  }
+
+  .patient-health-worker-avatar {
+    width: 58px;
+    height: 58px;
+
+    font-size: 14px;
+  }
+
+  .patient-health-worker-actions {
+    grid-template-columns: 1fr;
+  }
+}

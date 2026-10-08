@@ -1,0 +1,226 @@
+/* Requests Page */
+
+.requests-page {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* Header */
+
+.requests-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.requests-header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #1f2937;
+}
+
+.requests-header p {
+  margin-top: 6px;
+  color: #6b7280;
+}
+
+/* Search and Filter */
+
+.requests-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.search-box {
+  flex: 1;
+  max-width: 350px;
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: #2563eb;
+}
+
+.filter-select {
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Request Table */
+
+.requests-table-container {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  overflow-x: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.requests-table th {
+  text-align: left;
+  padding: 15px;
+  background: #f8fafc;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.requests-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.requests-table tr:hover {
+  background: #f9fafb;
+}
+
+/* Request ID */
+
+.request-id {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Status */
+
+.request-status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.status-accepted {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.status-completed {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.status-cancelled {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Action Buttons */
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.view-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.view-btn:hover {
+  background: #1d4ed8;
+}
+
+.accept-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #16a34a;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.accept-btn:hover {
+  background: #15803d;
+}
+
+.delete-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #dc2626;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+/* Empty State */
+
+.no-requests {
+  text-align: center;
+  padding: 50px 20px;
+  color: #6b7280;
+}
+
+.no-requests-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .requests-page {
+    padding: 20px;
+  }
+
+  .requests-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .requests-controls {
+    flex-direction: column;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+
+  .requests-table-container {
+    padding: 10px;
+  }
+
+  .requests-table th,
+  .requests-table td {
+    padding: 10px;
+    white-space: nowrap;
+  }
+}

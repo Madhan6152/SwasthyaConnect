@@ -1,0 +1,1074 @@
+/* =========================================================
+   HEALTH WORKER SECTIONS
+   SwasthyaConnect Theme
+   ========================================================= */
+
+.hw-section-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #172033;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.hw-section-header {
+  width: 100%;
+  margin-bottom: 22px;
+  padding: 24px 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 14px;
+
+  box-shadow:
+    0 3px 12px rgba(15, 23, 42, 0.035);
+}
+
+.hw-section-header h1 {
+  margin: 0 0 6px;
+  color: #172033;
+  font-size: 27px;
+  font-weight: 750;
+}
+
+.hw-section-header p {
+  margin: 0;
+  color: #667085;
+  font-size: 13px;
+}
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.hw-section-summary {
+  display: flex;
+  gap: 9px;
+}
+
+.hw-section-summary > div {
+  min-width: 82px;
+  padding: 10px 13px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #f8faff;
+  border: 1px solid #e1e9f7;
+  border-radius: 9px;
+
+  text-align: center;
+}
+
+.hw-section-summary strong {
+  color: #2563eb;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.hw-section-summary span {
+  margin-top: 3px;
+  color: #7a8699;
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.hw-doctor-summary {
+  padding: 13px 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #f3f7ff;
+  border: 1px solid #dce7fb;
+  border-radius: 10px;
+}
+
+.hw-doctor-summary strong {
+  color: #2563eb;
+  font-size: 22px;
+}
+
+.hw-doctor-summary span {
+  margin-top: 3px;
+  color: #667085;
+  font-size: 10px;
+}
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
+.hw-controls {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 14px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 12px;
+
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 12px;
+}
+
+.hw-search {
+  position: relative;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+}
+
+.hw-search > span {
+  position: absolute;
+  left: 14px;
+
+  color: #8a96a8;
+  font-size: 14px;
+
+  pointer-events: none;
+}
+
+.hw-search input {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 14px 0 40px;
+
+  border: 1px solid #d8e0eb;
+  border-radius: 8px;
+
+  background: #fbfcfe;
+  color: #172033;
+
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.hw-search input:focus {
+  border-color: #70a7ff;
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.hw-controls select {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 12px;
+
+  border: 1px solid #d8e0eb;
+  border-radius: 8px;
+
+  background: #fbfcfe;
+  color: #344054;
+
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.hw-controls select:focus {
+  border-color: #70a7ff;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.hw-small-search {
+  width: 300px;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.hw-card {
+  width: 100%;
+  margin-bottom: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e7eaf0;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 3px 12px rgba(15, 23, 42, 0.035);
+}
+
+.hw-card-header {
+  min-height: 72px;
+  padding: 18px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.hw-card-header h2 {
+  margin: 0;
+
+  color: #172033;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hw-card-header p {
+  margin: 4px 0 0;
+
+  color: #8a96a8;
+  font-size: 11px;
+}
+
+.hw-date-badge {
+  padding: 7px 10px;
+
+  border: 1px solid #dce7fb;
+  border-radius: 7px;
+
+  background: #f3f7ff;
+  color: #2563eb;
+
+  font-size: 10px;
+  font-weight: 650;
+}
+
+/* =========================================================
+   VISITS
+   ========================================================= */
+
+.hw-list {
+  width: 100%;
+}
+
+.hw-visit-item {
+  min-height: 82px;
+
+  padding: 15px 22px;
+
+  display: grid;
+  grid-template-columns:
+    100px
+    minmax(220px, 1fr)
+    120px
+    70px;
+
+  align-items: center;
+  gap: 18px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  transition: background 0.2s ease;
+}
+
+.hw-visit-item:last-child {
+  border-bottom: none;
+}
+
+.hw-visit-item:hover {
+  background: #fafcff;
+}
+
+.hw-visit-time {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hw-visit-time strong {
+  color: #172033;
+  font-size: 13px;
+}
+
+.hw-visit-time span {
+  color: #98a2b3;
+  font-size: 10px;
+}
+
+.hw-person {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.hw-person > div:last-child {
+  min-width: 0;
+}
+
+.hw-avatar {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e8f1ff;
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.hw-person strong,
+.hw-table-person strong {
+  display: block;
+
+  color: #344054;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hw-person span,
+.hw-table-person span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #8a96a8;
+  font-size: 10px;
+}
+
+.hw-person small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #667085;
+  font-size: 10px;
+}
+
+.hw-status {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hw-status i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.hw-status.scheduled {
+  background: #e4f8ed;
+  color: #16804b;
+}
+
+.hw-status.pending {
+  background: #fff4dc;
+  color: #c27a00;
+}
+
+.hw-status.completed {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.hw-action-button,
+.hw-secondary-button,
+.hw-primary-button {
+  min-height: 32px;
+
+  padding: 7px 11px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.hw-action-button {
+  border: 1px solid #cfe0ff;
+  background: #f0f6ff;
+  color: #2563eb;
+}
+
+.hw-action-button:hover {
+  background: #e5efff;
+  border-color: #b6d0ff;
+}
+
+.hw-action-button:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.hw-primary-button {
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.hw-primary-button:hover {
+  background: #1d4ed8;
+}
+
+.hw-secondary-button {
+  border: 1px solid #d8e0eb;
+  background: #ffffff;
+  color: #475467;
+}
+
+.hw-secondary-button:hover {
+  background: #f8faff;
+  border-color: #c9d6e8;
+}
+
+.hw-header-action {
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   PATIENT STATS
+   ========================================================= */
+
+.hw-patient-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.hw-mini-stat {
+  padding: 17px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 12px;
+
+  box-shadow:
+    0 2px 8px rgba(16, 24, 40, 0.04);
+}
+
+.hw-mini-stat > span {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+  background: #eaf1ff;
+
+  font-size: 17px;
+}
+
+.hw-mini-stat small {
+  display: block;
+  color: #667085;
+  font-size: 10px;
+}
+
+.hw-mini-stat strong {
+  display: block;
+  margin-top: 3px;
+
+  color: #172033;
+  font-size: 21px;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.hw-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.hw-table {
+  width: 100%;
+  min-width: 760px;
+
+  border-collapse: collapse;
+}
+
+.hw-table th {
+  padding: 11px 14px;
+
+  text-align: left;
+
+  color: #8a94a6;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  white-space: nowrap;
+}
+
+.hw-table td {
+  padding: 13px 14px;
+
+  color: #4b5565;
+
+  font-size: 12px;
+
+  border-bottom: 1px solid #f0f2f5;
+
+  vertical-align: middle;
+}
+
+.hw-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.hw-table tbody tr:hover {
+  background: #fafcff;
+}
+
+.hw-table-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hw-condition {
+  display: inline-block;
+
+  padding: 5px 8px;
+
+  border-radius: 15px;
+
+  background: #f3f7ff;
+  color: #2563eb;
+
+  font-size: 9px;
+  font-weight: 650;
+}
+
+/* =========================================================
+   REQUESTS
+   ========================================================= */
+
+.hw-request-list {
+  width: 100%;
+}
+
+.hw-request-item {
+  min-height: 105px;
+
+  padding: 17px 22px;
+
+  display: grid;
+
+  grid-template-columns:
+    40px
+    minmax(250px, 1fr)
+    80px
+    105px
+    75px;
+
+  align-items: center;
+
+  gap: 16px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  transition: background 0.2s ease;
+}
+
+.hw-request-item:last-child {
+  border-bottom: none;
+}
+
+.hw-request-item:hover {
+  background: #fafcff;
+}
+
+.hw-request-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #f0f4ff;
+
+  font-size: 16px;
+}
+
+.hw-request-info {
+  min-width: 0;
+}
+
+.hw-request-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hw-request-title strong {
+  color: #172033;
+  font-size: 12px;
+}
+
+.hw-request-title span {
+  color: #98a2b3;
+  font-size: 9px;
+}
+
+.hw-request-info p {
+  margin: 4px 0 0;
+
+  color: #475467;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.hw-request-info > small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #8a94a6;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hw-request-meta {
+  display: flex;
+  gap: 14px;
+
+  margin-top: 6px;
+
+  color: #98a2b3;
+
+  font-size: 9px;
+}
+
+.hw-priority,
+.hw-request-status {
+  display: inline-block;
+
+  width: fit-content;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.hw-priority.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.hw-priority.normal {
+  background: #f3f4f6;
+  color: #667085;
+}
+
+.hw-request-status.pending {
+  background: #fff4dc;
+  color: #c27a00;
+}
+
+.hw-request-status.approved {
+  background: #e4f8ed;
+  color: #16804b;
+}
+
+.hw-request-status.in-progress,
+.hw-request-status.triaged {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.hw-request-status.referred {
+  background: #f0e9ff;
+  color: #7c3aed;
+}
+
+/* =========================================================
+   DOCTORS
+   ========================================================= */
+
+.hw-doctor-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.hw-doctor-card {
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e7eaf0;
+  border-radius: 14px;
+
+  box-shadow:
+    0 2px 8px rgba(16, 24, 40, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hw-doctor-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 18px rgba(16, 24, 40, 0.08);
+}
+
+.hw-doctor-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hw-doctor-avatar {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e8f1ff;
+  color: #2563eb;
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.hw-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.hw-availability i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.hw-availability.available {
+  background: #e4f8ed;
+  color: #16804b;
+}
+
+.hw-availability.busy {
+  background: #fff4dc;
+  color: #c27a00;
+}
+
+.hw-doctor-info {
+  margin-top: 16px;
+}
+
+.hw-doctor-info h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hw-specialization {
+  margin: 5px 0 0;
+
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.hw-doctor-details {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin-top: 15px;
+
+  color: #667085;
+
+  font-size: 10px;
+}
+
+.hw-doctor-actions {
+  display: flex;
+  gap: 8px;
+
+  margin-top: 18px;
+  padding-top: 15px;
+
+  border-top: 1px solid #edf0f4;
+}
+
+.hw-doctor-actions button {
+  flex: 1;
+}
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.hw-empty {
+  padding: 65px 20px;
+
+  text-align: center;
+}
+
+.hw-empty > div {
+  width: 54px;
+  height: 54px;
+
+  margin: 0 auto 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f1f6ff;
+  border: 1px solid #dce8fb;
+
+  font-size: 20px;
+}
+
+.hw-empty h3 {
+  margin: 0;
+
+  color: #172033;
+  font-size: 16px;
+}
+
+.hw-empty p {
+  margin: 7px 0 0;
+
+  color: #8a96a8;
+  font-size: 11px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .hw-visit-item {
+    grid-template-columns:
+      90px
+      minmax(180px, 1fr)
+      100px
+      65px;
+
+    gap: 12px;
+  }
+
+  .hw-request-item {
+    grid-template-columns:
+      40px
+      minmax(200px, 1fr)
+      75px
+      95px
+      70px;
+
+    gap: 12px;
+  }
+}
+
+@media (max-width: 850px) {
+  .hw-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hw-section-summary {
+    width: 100%;
+  }
+
+  .hw-section-summary > div {
+    flex: 1;
+  }
+
+  .hw-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-small-search {
+    width: 100%;
+  }
+
+  .hw-doctor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-request-item {
+    grid-template-columns:
+      40px
+      1fr
+      auto
+      auto;
+  }
+
+  .hw-request-info {
+    grid-column: 2;
+  }
+
+  .hw-priority {
+    grid-column: 3;
+  }
+
+  .hw-request-status {
+    grid-column: 4;
+  }
+
+  .hw-request-item > .hw-action-button {
+    grid-column: 2 / -1;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 650px) {
+  .hw-section-header {
+    padding: 20px;
+  }
+
+  .hw-section-header h1 {
+    font-size: 23px;
+  }
+
+  .hw-section-summary {
+    gap: 6px;
+  }
+
+  .hw-section-summary > div {
+    min-width: 0;
+    padding: 9px;
+  }
+
+  .hw-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hw-visit-item {
+    grid-template-columns: 1fr;
+    gap: 11px;
+    padding: 16px;
+  }
+
+  .hw-status,
+  .hw-action-button {
+    width: fit-content;
+  }
+
+  .hw-patient-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-request-item {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .hw-request-info {
+    grid-column: 2;
+  }
+
+  .hw-priority,
+  .hw-request-status,
+  .hw-request-item > .hw-action-button {
+    grid-column: 2;
+  }
+
+  .hw-doctor-card {
+    padding: 17px;
+  }
+
+  .hw-doctor-actions {
+    flex-direction: column;
+  }
+
+  .hw-doctor-actions button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,964 @@
+/* =========================================================
+   SWASTHYACONNECT
+   PATIENT - DOCTORS PAGE
+   Professional Doctor Profile Card Design
+   Matches Doctors.jsx exactly
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+.doctors-page,
+.doctors-page * {
+  box-sizing: border-box;
+}
+
+.doctors-page {
+  min-height: 100vh;
+
+  padding: 34px 32px 50px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8fbff 0%,
+      #f4f7fb 45%,
+      #f4f7fb 100%
+    );
+
+  color: #172033;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.doctors-header {
+  width: min(1380px, 100%);
+  margin: 0 auto 25px;
+
+  padding: 28px 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4eaf2;
+  border-radius: 18px;
+
+  box-shadow:
+    0 4px 18px rgba(30, 64, 175, 0.04);
+}
+
+.doctors-header h1 {
+  margin: 21px 0 7px;
+
+  color: #14213d;
+
+  font-size: 30px;
+  font-weight: 750;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.6px;
+}
+
+.doctors-header p {
+  margin: 0;
+
+  color: #6b778c;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding: 9px 15px;
+
+  border: 1px solid #cfe0ff;
+  border-radius: 9px;
+
+  background: #f0f6ff;
+  color: #2563eb;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+  background: #e5efff;
+  border-color: #b6d0ff;
+
+  color: #1d4ed8;
+
+  transform: translateX(-2px);
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.08);
+}
+
+.back-button:active {
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   SEARCH + FILTER PANEL
+   ========================================================= */
+
+.doctor-controls {
+  width: min(1380px, 100%);
+  margin: 0 auto 27px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    250px;
+
+  gap: 15px;
+
+  padding: 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4eaf2;
+  border-radius: 15px;
+
+  box-shadow:
+    0 4px 16px rgba(30, 64, 175, 0.035);
+}
+
+
+/* =========================================================
+   PATIENT DOCTORS - SEARCH BOX
+   Scoped to prevent admin CSS conflicts
+   ========================================================= */
+
+.doctors-page .search-box {
+  position: relative;
+  width: 100%;
+  height: 47px;
+
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
+}
+
+.doctors-page .search-box span {
+  position: absolute;
+  left: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #7c8aa0;
+  font-size: 15px;
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+.doctors-page .search-box input {
+  width: 100%;
+  height: 47px;
+
+  margin: 0;
+  padding: 0 15px 0 44px;
+
+  border: 1px solid #d8e0eb;
+  border-radius: 10px;
+
+  background: #fbfcfe;
+
+  color: #172033;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  box-shadow: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.doctors-page .search-box input::placeholder {
+  color: #9aa6b8;
+}
+
+.doctors-page .search-box input:hover {
+  border-color: #c4cfdd;
+  background: #ffffff;
+}
+
+.doctors-page .search-box input:focus {
+  border-color: #70a7ff;
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+/* =========================================================
+   SPECIALTY FILTER
+   ========================================================= */
+
+.specialty-filter {
+  width: 100%;
+  height: 47px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d8e0eb;
+  border-radius: 10px;
+
+  background: #fbfcfe;
+
+  color: #344054;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 550;
+
+  outline: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.specialty-filter:hover {
+  border-color: #c4cfdd;
+
+  background: #ffffff;
+}
+
+.specialty-filter:focus {
+  border-color: #70a7ff;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   RESULTS HEADER
+   ========================================================= */
+
+.results-header {
+  width: min(1380px, 100%);
+  margin: 0 auto 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.results-header h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 19px;
+  font-weight: 750;
+
+  letter-spacing: -0.2px;
+}
+
+.results-header span {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 30px;
+
+  padding: 5px 11px;
+
+  border: 1px solid #dbe7ff;
+  border-radius: 7px;
+
+  background: #f1f6ff;
+
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   DOCTORS GRID
+   ========================================================= */
+
+.doctors-grid {
+  width: min(1380px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   DOCTOR PROFILE CARD
+   ========================================================= */
+
+.doctor-card {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 23px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ef;
+  border-radius: 18px;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.045);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* subtle top accent */
+
+.doctor-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #60a5fa
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.25s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #cbdcf8;
+
+  box-shadow:
+    0 14px 30px rgba(37, 99, 235, 0.09);
+}
+
+.doctor-card:hover::before {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   DOCTOR TOP / PROFILE AREA
+   ========================================================= */
+
+.doctor-top {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding-bottom: 19px;
+
+  border-bottom: 1px solid #edf1f6;
+}
+
+
+/* =========================================================
+   DOCTOR AVATAR
+   ========================================================= */
+
+.doctor-avatar {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #c9dcff;
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eef5ff 0%,
+      #dbeafe 100%
+    );
+
+  color: #1d4ed8;
+
+  font-size: 17px;
+  font-weight: 750;
+
+  box-shadow:
+    inset 0 0 0 5px rgba(255, 255, 255, 0.5),
+    0 3px 9px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   BASIC DOCTOR INFORMATION
+   ========================================================= */
+
+.doctor-basic-info {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.doctor-basic-info h3 {
+  margin: 0;
+
+  color: #162033;
+
+  font-size: 16px;
+  font-weight: 750;
+
+  line-height: 1.35;
+
+  letter-spacing: -0.15px;
+
+  overflow-wrap: anywhere;
+}
+
+.doctor-specialty {
+  margin: 6px 0 0;
+
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   AVAILABILITY DOT
+   ========================================================= */
+
+.available-dot {
+  flex: 0 0 auto;
+
+  width: 11px;
+  height: 11px;
+
+  margin-left: auto;
+
+  border: 2px solid #ffffff;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 3px #dcfce7,
+    0 2px 5px rgba(34, 197, 94, 0.18);
+}
+
+
+/* =========================================================
+   DOCTOR DETAILS
+   ========================================================= */
+
+.doctor-details {
+  padding: 18px 0 16px;
+
+  border-bottom: 1px solid #edf1f6;
+}
+
+.doctor-details p {
+  display: flex;
+  align-items: flex-start;
+
+  margin: 0 0 11px;
+
+  color: #66748a;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+.doctor-details p:last-child {
+  margin-bottom: 0;
+}
+
+.doctor-details strong {
+  flex: 0 0 83px;
+
+  color: #344054;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   AVAILABILITY STATUS
+   ========================================================= */
+
+.availability {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  min-height: 36px;
+
+  margin-top: 15px;
+
+  padding: 8px 11px;
+
+  border: 1px solid #d9f4e2;
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f0fdf4,
+      #f5fff8
+    );
+
+  color: #15803d;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.05px;
+}
+
+.availability-icon {
+  display: flex;
+  align-items: center;
+
+  color: #22c55e;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   APPOINTMENT BUTTON
+   ========================================================= */
+
+.appointment-button {
+  width: 100%;
+
+  margin-top: 15px;
+
+  padding: 12px 15px;
+
+  border: 1px solid #2563eb;
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.05px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 9px rgba(37, 99, 235, 0.14);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.appointment-button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #1d4ed8,
+      #1e40af
+    );
+
+  border-color: #1d4ed8;
+
+  box-shadow:
+    0 7px 15px rgba(37, 99, 235, 0.2);
+
+  transform: translateY(-1px);
+}
+
+.appointment-button:active {
+  transform: translateY(0);
+
+  box-shadow:
+    0 3px 7px rgba(37, 99, 235, 0.13);
+}
+
+
+/* =========================================================
+   NO DOCTORS / EMPTY STATE
+   ========================================================= */
+
+.no-doctors {
+  width: min(1380px, 100%);
+  margin: 0 auto;
+
+  padding: 75px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ef;
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.04);
+}
+
+.no-doctors-icon {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d7e5ff;
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f2f7ff,
+      #e8f1ff
+    );
+
+  font-size: 22px;
+}
+
+.no-doctors h3 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.no-doctors p {
+  margin: 8px 0 0;
+
+  color: #718096;
+
+  font-size: 13px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+.back-button:focus-visible,
+.appointment-button:focus-visible,
+.specialty-filter:focus-visible,
+.search-box input:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1150px) {
+  .doctors-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .doctor-controls {
+    grid-template-columns:
+      minmax(0, 1fr)
+      220px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .doctors-page {
+    padding: 24px 18px 35px;
+  }
+
+  .doctors-header {
+    padding: 23px;
+  }
+
+  .doctors-header h1 {
+    font-size: 26px;
+  }
+
+  .doctor-controls {
+    grid-template-columns: 1fr;
+
+    padding: 15px;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .results-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .doctor-card {
+    padding: 21px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+  .doctors-page {
+    padding: 16px 13px 28px;
+  }
+
+  .doctors-header {
+    padding: 19px;
+
+    border-radius: 14px;
+  }
+
+  .doctors-header h1 {
+    margin-top: 17px;
+
+    font-size: 23px;
+  }
+
+  .doctors-header p {
+    font-size: 12px;
+  }
+
+  .back-button {
+    min-height: 36px;
+
+    padding: 8px 12px;
+
+    font-size: 12px;
+  }
+
+  .doctor-controls {
+    padding: 13px;
+
+    border-radius: 13px;
+  }
+
+  .search-box input,
+  .specialty-filter {
+    height: 44px;
+  }
+
+  .results-header h2 {
+    font-size: 17px;
+  }
+
+  .results-header span {
+    font-size: 11px;
+  }
+
+  .doctor-card {
+    padding: 18px;
+
+    border-radius: 15px;
+  }
+
+  .doctor-avatar {
+    width: 60px;
+    height: 60px;
+
+    font-size: 15px;
+  }
+
+  .doctor-top {
+    gap: 12px;
+  }
+
+  .doctor-basic-info h3 {
+    font-size: 14px;
+  }
+
+  .doctor-specialty {
+    font-size: 11px;
+  }
+
+  .doctor-details {
+    padding: 16px 0;
+  }
+
+  .doctor-details p {
+    font-size: 11px;
+  }
+
+  .doctor-details strong {
+    flex-basis: 76px;
+  }
+
+  .availability {
+    font-size: 10px;
+  }
+
+  .appointment-button {
+    padding: 11px 13px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .doctors-page {
+    padding: 12px 9px 22px;
+  }
+
+  .doctors-header {
+    padding: 16px;
+  }
+
+  .doctor-card {
+    padding: 16px;
+  }
+
+  .doctor-avatar {
+    width: 54px;
+    height: 54px;
+
+    font-size: 14px;
+  }
+
+  .doctor-top {
+    gap: 9px;
+  }
+
+  .available-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .doctor-details strong {
+    flex-basis: 70px;
+  }
+}
+

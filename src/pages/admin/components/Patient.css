@@ -1,0 +1,403 @@
+/* ================================
+   PATIENT DASHBOARD
+================================ */
+
+.patient-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #172033;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.patient-header {
+  height: 72px;
+  background: #ffffff;
+  border-bottom: 1px solid #e7eaf0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.patient-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.patient-logo-icon {
+  width: 38px;
+  height: 38px;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.patient-logo h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.patient-logo span {
+  display: block;
+  color: #98a2b3;
+  font-size: 10px;
+}
+
+/* ================================
+   USER PROFILE
+================================ */
+
+.patient-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.patient-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #eaf1ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.patient-profile strong {
+  display: block;
+  font-size: 13px;
+}
+
+.patient-profile span {
+  display: block;
+  color: #98a2b3;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+/* ================================
+   MAIN CONTENT
+================================ */
+
+.patient-content {
+  max-width: 1400px;
+  margin: auto;
+  padding: 30px;
+}
+
+/* ================================
+   WELCOME SECTION
+================================ */
+
+.patient-welcome {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.patient-welcome h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.patient-welcome p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.book-button {
+  border: none;
+  background: white;
+  color: #2563eb;
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.book-button:hover {
+  transform: translateY(-2px);
+}
+
+/* ================================
+   STAT CARDS
+================================ */
+
+.patient-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.patient-stat-card {
+  background: white;
+  border: 1px solid #e7eaf0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04);
+}
+
+.patient-stat-icon {
+  width: 42px;
+  height: 42px;
+  background: #eaf1ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  margin-bottom: 14px;
+}
+
+.patient-stat-card h3 {
+  margin: 0;
+  color: #667085;
+  font-size: 13px;
+}
+
+.patient-stat-card strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 26px;
+}
+
+/* ================================
+   DASHBOARD GRID
+================================ */
+
+.patient-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.patient-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04);
+}
+
+.patient-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.patient-card-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.patient-card-header span {
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+/* ================================
+   APPOINTMENTS
+================================ */
+
+.appointment {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.appointment:last-child {
+  border-bottom: none;
+}
+
+.doctor-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e5f8ee;
+  color: #16804b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.appointment-info {
+  flex: 1;
+}
+
+.appointment-info strong {
+  display: block;
+  font-size: 13px;
+}
+
+.appointment-info span {
+  display: block;
+  color: #98a2b3;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.appointment-time {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ================================
+   STATUS
+================================ */
+
+.patient-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.status-confirmed {
+  background: #e5f8ee;
+  color: #16804b;
+}
+
+.status-pending {
+  background: #fff4dc;
+  color: #c27a00;
+}
+
+.status-completed {
+  background: #e8f1ff;
+  color: #2563eb;
+}
+
+/* ================================
+   HEALTH REQUEST
+================================ */
+
+.health-request {
+  padding: 14px;
+  background: #f8faff;
+  border: 1px solid #edf0f4;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.health-request h3 {
+  margin: 0 0 5px;
+  font-size: 13px;
+}
+
+.health-request p {
+  margin: 0;
+  color: #667085;
+  font-size: 11px;
+}
+
+/* ================================
+   QUICK ACTIONS
+================================ */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.quick-action {
+  border: 1px solid #e7eaf0;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.quick-action:hover {
+  border-color: #c9d9ff;
+  background: #f8faff;
+  transform: translateY(-2px);
+}
+
+.quick-action-icon {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.quick-action strong {
+  display: block;
+  font-size: 12px;
+}
+
+.quick-action span {
+  display: block;
+  color: #98a2b3;
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+  .patient-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .patient-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .patient-header {
+    padding: 0 15px;
+  }
+
+  .patient-content {
+    padding: 15px;
+  }
+
+  .patient-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .patient-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-profile div {
+    display: none;
+  }
+}
+

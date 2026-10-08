@@ -1,0 +1,995 @@
+/* =========================================
+   HOME PAGE
+   ========================================= */
+
+.home-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+  color: #111827;
+}
+
+
+/* =========================================
+   HEADER / NAVBAR
+   ========================================= */
+
+.home-header {
+  width: 100%;
+  min-height: 76px;
+  padding: 15px 6%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+/* Logo */
+
+.home-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: #2563eb;
+  font-size: 30px;
+}
+
+.home-logo h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+.home-logo span {
+  display: block;
+  margin-top: 3px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+
+/* Navigation */
+
+.home-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.home-nav a {
+  color: #374151;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.home-nav a:hover {
+  color: #2563eb;
+}
+
+
+/* Login Button */
+
+.home-login-button {
+  padding: 10px 22px;
+  border: 1px solid #2563eb;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.home-login-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.home-hero {
+  min-height: 600px;
+  padding: 80px 8%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #eff6ff, #ffffff);
+}
+
+
+/* Hero Content */
+
+.home-hero-content {
+  max-width: 650px;
+}
+
+.home-badge {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+/* Hero Heading */
+
+.home-hero-content h1 {
+  margin: 0;
+  font-size: 52px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #111827;
+}
+
+.home-hero-content h1 span {
+  display: block;
+  color: #2563eb;
+}
+
+
+/* Hero Paragraph */
+
+.home-hero-content > p {
+  margin: 22px 0 0;
+  max-width: 620px;
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   HERO BUTTONS
+   ========================================= */
+
+.home-hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.home-primary-button,
+.home-secondary-button {
+  padding: 13px 23px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* Primary */
+
+.home-primary-button {
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.home-primary-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+
+/* Secondary */
+
+.home-secondary-button {
+  border: 1px solid #2563eb;
+  background: #ffffff;
+  color: #2563eb;
+}
+
+.home-secondary-button:hover {
+  background: #eff6ff;
+}
+
+
+/* =========================================
+   HERO CARD
+   ========================================= */
+
+.home-hero-card {
+  width: 390px;
+  min-height: 350px;
+  padding: 40px 35px;
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+.home-card-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #dbeafe;
+  font-size: 40px;
+}
+
+
+.home-hero-card h3 {
+  margin: 0 0 12px;
+  font-size: 25px;
+  color: #111827;
+}
+
+
+.home-hero-card > p {
+  margin: 0;
+  max-width: 280px;
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+
+/* Hero Stats */
+
+.home-card-stats {
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 25px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid #e5e7eb;
+}
+
+
+.home-card-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+.home-card-stats strong {
+  color: #2563eb;
+  font-size: 20px;
+}
+
+
+.home-card-stats span {
+  color: #6b7280;
+  font-size: 11px;
+}
+
+
+/* =========================================
+   SERVICES SECTION
+   ========================================= */
+
+.home-services {
+  padding: 80px 8%;
+  background: #ffffff;
+}
+
+
+/* Section Heading */
+
+.home-section-heading {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+
+.home-section-heading > span {
+  display: block;
+  margin-bottom: 12px;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+.home-section-heading h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 36px;
+  line-height: 1.25;
+}
+
+
+.home-section-heading p {
+  margin: 18px auto 0;
+  max-width: 650px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* Service Grid */
+
+.home-service-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+
+/* Service Card */
+
+.home-service-card {
+  padding: 28px 22px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  text-align: center;
+
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+
+.home-service-card:hover {
+  transform: translateY(-5px);
+  border-color: #93c5fd;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+
+/* Service Icon */
+
+.service-icon {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #dbeafe;
+
+  font-size: 28px;
+}
+
+
+.home-service-card h3 {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: 19px;
+}
+
+
+.home-service-card p {
+  min-height: 95px;
+  margin: 0 0 20px;
+
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+.home-service-card button {
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.home-service-card button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   HOW IT WORKS
+   ========================================= */
+
+.home-how-it-works {
+  padding: 80px 8%;
+  background: #f5f7fb;
+}
+
+
+.home-steps {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+
+.home-step {
+  padding: 25px;
+  text-align: center;
+}
+
+
+.step-number {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+.home-step h3 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 18px;
+}
+
+
+.home-step p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   ABOUT SECTION
+   ========================================= */
+
+.home-about {
+  padding: 90px 8%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+
+  background: #ffffff;
+}
+
+
+.home-about-content {
+  max-width: 600px;
+}
+
+
+.home-about-content > span {
+  display: block;
+  margin-bottom: 14px;
+
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+.home-about-content h2 {
+  margin: 0 0 22px;
+  font-size: 38px;
+  line-height: 1.25;
+  color: #111827;
+}
+
+
+.home-about-content p {
+  margin: 0 0 17px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+.home-about-content .home-primary-button {
+  margin-top: 10px;
+}
+
+
+/* About Visual */
+
+.home-about-visual {
+  width: 430px;
+  min-height: 350px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eff6ff;
+  border-radius: 25px;
+}
+
+
+.about-main-icon {
+  width: 130px;
+  height: 130px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #dbeafe;
+
+  font-size: 65px;
+}
+
+
+/* Floating Card */
+
+.about-floating-card {
+  position: absolute;
+  right: -25px;
+  bottom: 35px;
+
+  padding: 18px 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+.about-floating-card strong {
+  color: #111827;
+  font-size: 14px;
+}
+
+
+.about-floating-card span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+
+/* =========================================
+   CALL TO ACTION
+   ========================================= */
+
+.home-cta {
+  margin: 30px 8% 80px;
+  padding: 60px 30px;
+
+  border-radius: 18px;
+  background: #2563eb;
+
+  text-align: center;
+  color: #ffffff;
+}
+
+
+.home-cta h2 {
+  margin: 0 0 15px;
+  font-size: 34px;
+  line-height: 1.3;
+}
+
+
+.home-cta p {
+  max-width: 650px;
+  margin: 0 auto 28px;
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+.home-cta button {
+  padding: 13px 25px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #2563eb;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+.home-cta button:hover {
+  background: #eff6ff;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.home-footer {
+  padding: 50px 8%;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+
+  background: #111827;
+  color: #ffffff;
+}
+
+
+.home-footer h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+
+.home-footer h4 {
+  margin: 0 0 15px;
+  font-size: 15px;
+}
+
+
+.home-footer p {
+  margin: 7px 0;
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+  .home-header {
+    padding: 15px 4%;
+  }
+
+  .home-hero {
+    padding: 70px 6%;
+    gap: 40px;
+  }
+
+  .home-hero-content h1 {
+    font-size: 44px;
+  }
+
+  .home-hero-card {
+    width: 350px;
+  }
+
+  .home-services,
+  .home-how-it-works,
+  .home-about {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .home-service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .home-header {
+    min-height: auto;
+    padding: 15px 20px;
+
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .home-logo {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .home-nav {
+    order: 3;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .home-login-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+
+  /* Hero */
+
+  .home-hero {
+    min-height: auto;
+    padding: 60px 20px;
+
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-hero-content {
+    max-width: 650px;
+  }
+
+  .home-hero-content h1 {
+    font-size: 38px;
+  }
+
+  .home-hero-content > p {
+    font-size: 16px;
+  }
+
+  .home-hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .home-hero-card {
+    width: 100%;
+    max-width: 430px;
+  }
+
+
+  /* Services */
+
+  .home-services {
+    padding: 65px 20px;
+  }
+
+  .home-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* How It Works */
+
+  .home-how-it-works {
+    padding: 65px 20px;
+  }
+
+  .home-steps {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* About */
+
+  .home-about {
+    padding: 65px 20px;
+
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-about-content {
+    max-width: 650px;
+  }
+
+  .home-about-visual {
+    width: 100%;
+    max-width: 430px;
+  }
+
+  .about-floating-card {
+    right: 10px;
+  }
+
+
+  /* CTA */
+
+  .home-cta {
+    margin: 20px 20px 60px;
+    padding: 50px 20px;
+  }
+
+
+  /* Footer */
+
+  .home-footer {
+    padding: 45px 20px;
+
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 500px) {
+
+  .home-header {
+    padding: 15px;
+  }
+
+  .home-logo {
+    justify-content: flex-start;
+  }
+
+  .home-logo h2 {
+    font-size: 20px;
+  }
+
+  .home-logo span {
+    font-size: 11px;
+  }
+
+  .home-nav {
+    gap: 14px;
+    overflow-x: auto;
+  }
+
+  .home-nav a {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .home-login-button {
+    position: static;
+    order: 2;
+    padding: 8px 17px;
+  }
+
+
+  /* Hero */
+
+  .home-hero {
+    padding: 50px 15px;
+  }
+
+  .home-hero-content h1 {
+    font-size: 31px;
+  }
+
+  .home-hero-content > p {
+    font-size: 15px;
+  }
+
+  .home-hero-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .home-primary-button,
+  .home-secondary-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  /* Hero Card */
+
+  .home-hero-card {
+    min-height: 320px;
+    padding: 30px 20px;
+  }
+
+  .home-card-stats strong {
+    font-size: 17px;
+  }
+
+  .home-card-stats span {
+    font-size: 10px;
+  }
+
+
+  /* Section Headings */
+
+  .home-section-heading h2 {
+    font-size: 28px;
+  }
+
+  .home-section-heading p {
+    font-size: 14px;
+  }
+
+
+  /* About */
+
+  .home-about-content h2 {
+    font-size: 29px;
+  }
+
+  .home-about-content p {
+    font-size: 15px;
+  }
+
+  .home-about-visual {
+    min-height: 280px;
+  }
+
+  .about-main-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+  }
+
+  .about-floating-card {
+    right: 5px;
+    bottom: 20px;
+    padding: 14px;
+  }
+
+
+  /* CTA */
+
+  .home-cta h2 {
+    font-size: 27px;
+  }
+}

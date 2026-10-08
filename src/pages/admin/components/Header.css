@@ -1,0 +1,276 @@
+/* =================================
+   ADMIN HEADER
+================================= */
+
+.admin-header {
+  height: 82px;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e7eaf0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* =================================
+   LEFT SIDE
+================================= */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Mobile Menu */
+
+.mobile-menu {
+  display: none;
+
+  border: none;
+  background: transparent;
+
+  font-size: 22px;
+  color: #344054;
+
+  cursor: pointer;
+}
+
+/* =================================
+   SEARCH BOX
+================================= */
+
+.search-box {
+  width: 320px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 0 13px;
+
+  background: #f8f9fb;
+  border: 1px solid #e7eaf0;
+  border-radius: 9px;
+
+  transition: 0.2s;
+}
+
+.search-box:focus-within {
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.search-box span {
+  color: #98a2b3;
+  font-size: 20px;
+}
+
+.search-box input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #172033;
+  font-size: 12px;
+}
+
+.search-box input::placeholder {
+  color: #98a2b3;
+}
+
+/* =================================
+   RIGHT SIDE
+================================= */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* =================================
+   NOTIFICATION
+================================= */
+
+.header-icon {
+  width: 38px;
+  height: 38px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  border-radius: 8px;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.header-icon:hover {
+  background: #f4f7ff;
+}
+
+.notification-dot {
+  width: 7px;
+  height: 7px;
+
+  position: absolute;
+  top: 7px;
+  right: 7px;
+
+  background: #ef4444;
+  border: 2px solid #ffffff;
+
+  border-radius: 50%;
+}
+
+/* =================================
+   DIVIDER
+================================= */
+
+.header-divider {
+  width: 1px;
+  height: 32px;
+
+  background: #e7eaf0;
+}
+
+/* =================================
+   USER PROFILE
+================================= */
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  cursor: pointer;
+}
+
+.header-avatar {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eaf1ff;
+  color: #2563eb;
+
+  border-radius: 50%;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.header-user strong {
+  display: block;
+
+  color: #172033;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.header-user span {
+  display: block;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+
+  margin-top: 2px;
+}
+
+.header-user .dropdown-arrow {
+  color: #667085;
+
+  font-size: 14px;
+
+  margin-left: 4px;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 900px) {
+
+  .admin-header {
+    padding: 0 20px;
+  }
+
+  .search-box {
+    width: 240px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .admin-header {
+    height: 70px;
+    padding: 0 15px;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .search-box {
+    width: 200px;
+  }
+
+  .header-user > div:nth-child(2) {
+    display: none;
+  }
+
+  .header-user .dropdown-arrow {
+    display: none;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .search-box {
+    width: 150px;
+  }
+
+  .header-right {
+    gap: 8px;
+  }
+
+  .header-divider {
+    display: none;
+  }
+
+  .header-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+}
+

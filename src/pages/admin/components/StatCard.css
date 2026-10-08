@@ -1,0 +1,156 @@
+/* ================================
+   STAT CARD
+================================ */
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 145px;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04);
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+}
+
+/* ================================
+   TOP SECTION
+================================ */
+
+.stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+/* ================================
+   ICON
+================================ */
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: #eff6ff;
+  color: #2563eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+}
+
+/* ================================
+   CHANGE
+================================ */
+
+.change {
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a34a;
+  white-space: nowrap;
+}
+
+.urgent-change {
+  color: #dc2626;
+}
+
+/* ================================
+   VALUE
+================================ */
+
+.stat-value {
+  margin: 0 0 6px;
+  color: #172033;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ================================
+   TITLE
+================================ */
+
+.stat-title {
+  margin: 0 0 5px;
+  color: #667085;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.stat-description {
+  color: #98a2b3;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* ================================
+   URGENT CARD
+================================ */
+
+.stat-card.stat-urgent {
+  border-color: #fecaca;
+  background: #fffafa;
+}
+
+.stat-card.stat-urgent .stat-icon {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.stat-card.stat-urgent .stat-value {
+  color: #dc2626;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+  .stat-card {
+    padding: 17px;
+  }
+
+  .stat-value {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stat-card {
+    min-height: 130px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
+}
