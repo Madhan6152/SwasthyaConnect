@@ -1,34 +1,19 @@
-<<<<<<< HEAD
 import React, { useMemo, useState } from "react";
-import "./DoctorPatients.css";
-
-const defaultPatients = [
-  {
-=======
-import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./DoctorPatients.css";
 
 const patients = {
   P001: {
->>>>>>> de36534b2ce1479be4337fc0cbd27964977a6b8f
     id: "P001",
     name: "Ravi Kumar",
     age: 42,
     gender: "Male",
     village: "Madhavapur",
-<<<<<<< HEAD
-    phone: "9876543210",
-    condition: "Fever",
-    lastVisit: "18 Sep 2026",
-    status: "Active",
-  },
-  {
-=======
     phone: "+91 98765 43210",
     bloodGroup: "B+",
     condition: "Fever",
     lastVisit: "18 Sep 2026",
+    status: "Active",
 
     symptoms: [
       "Fever for 3 days",
@@ -73,24 +58,16 @@ const patients = {
   },
 
   P002: {
->>>>>>> de36534b2ce1479be4337fc0cbd27964977a6b8f
     id: "P002",
     name: "Lakshmi Devi",
     age: 56,
     gender: "Female",
     village: "Rampur",
-<<<<<<< HEAD
-    phone: "9876543211",
-    condition: "Diabetes",
-    lastVisit: "17 Sep 2026",
-    status: "Active",
-  },
-  {
-=======
     phone: "+91 98765 12345",
     bloodGroup: "O+",
     condition: "Diabetes",
     lastVisit: "17 Sep 2026",
+    status: "Active",
 
     symptoms: [
       "Increased thirst",
@@ -129,24 +106,16 @@ const patients = {
   },
 
   P003: {
->>>>>>> de36534b2ce1479be4337fc0cbd27964977a6b8f
     id: "P003",
     name: "Suresh Reddy",
     age: 35,
     gender: "Male",
     village: "Kondapur",
-<<<<<<< HEAD
-    phone: "9876543212",
-    condition: "Hypertension",
-    lastVisit: "15 Sep 2026",
-    status: "Active",
-  },
-  {
-=======
     phone: "+91 99887 66554",
     bloodGroup: "A+",
     condition: "Hypertension",
     lastVisit: "15 Sep 2026",
+    status: "Active",
 
     symptoms: [
       "Occasional headache",
@@ -185,189 +154,16 @@ const patients = {
   },
 
   P004: {
->>>>>>> de36534b2ce1479be4337fc0cbd27964977a6b8f
     id: "P004",
     name: "Anitha Rao",
     age: 29,
     gender: "Female",
     village: "Nandigama",
-<<<<<<< HEAD
-    phone: "9876543213",
-    condition: "General Checkup",
-    lastVisit: "14 Sep 2026",
-    status: "Active",
-  },
-  {
-    id: "P005",
-    name: "Mohan Das",
-    age: 48,
-    gender: "Male",
-    village: "Gopalapuram",
-    phone: "9876543214",
-    condition: "Heart Problem",
-    lastVisit: "12 Sep 2026",
-    status: "Inactive",
-  },
-  {
-    id: "P006",
-    name: "Priya Sharma",
-    age: 31,
-    gender: "Female",
-    village: "Lakshmipur",
-    phone: "9876543215",
-    condition: "Fever",
-    lastVisit: "10 Sep 2026",
-    status: "Active",
-  },
-];
-
-function DoctorPatients() {
-  const [search, setSearch] = useState("");
-  const [statusFilter, setStatusFilter] = useState("All");
-
-  const filteredPatients = useMemo(() => {
-    const searchText = search.toLowerCase().trim();
-
-    return defaultPatients.filter((patient) => {
-      const matchesSearch =
-        patient.name.toLowerCase().includes(searchText) ||
-        patient.id.toLowerCase().includes(searchText) ||
-        patient.village.toLowerCase().includes(searchText) ||
-        patient.phone.includes(searchText) ||
-        patient.condition.toLowerCase().includes(searchText);
-
-      const matchesStatus =
-        statusFilter === "All" ||
-        patient.status === statusFilter;
-
-      return matchesSearch && matchesStatus;
-    });
-  }, [search, statusFilter]);
-
-  const activePatients = defaultPatients.filter(
-    (patient) => patient.status === "Active"
-  ).length;
-
-  const inactivePatients = defaultPatients.filter(
-    (patient) => patient.status === "Inactive"
-  ).length;
-
-  const handleViewPatient = (patient) => {
-    alert(`Opening ${patient.name}'s medical record`);
-  };
-
-  return (
-    <div className="doctor-patients-page">
-
-      {/* =====================================================
-          HEADER
-          ===================================================== */}
-
-      <section className="doctor-patients-header">
-
-        <div>
-          <h1>Patients</h1>
-
-          <p>
-            View and manage patients assigned to you.
-          </p>
-        </div>
-
-        <div className="doctor-patients-summary">
-
-          <div className="doctor-patients-summary-item">
-            <strong>{defaultPatients.length}</strong>
-            <span>Total Patients</span>
-          </div>
-
-          <div className="doctor-patients-summary-item">
-            <strong>{activePatients}</strong>
-            <span>Active</span>
-          </div>
-
-          <div className="doctor-patients-summary-item">
-            <strong>{inactivePatients}</strong>
-            <span>Inactive</span>
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          SEARCH AND FILTER
-          ===================================================== */}
-
-      <section className="doctor-patients-controls">
-
-        <div className="doctor-patients-search">
-
-          <span>🔍</span>
-
-          <input
-            type="text"
-            placeholder="Search by name, ID, village, phone or condition..."
-            value={search}
-            onChange={(event) =>
-              setSearch(event.target.value)
-            }
-          />
-
-        </div>
-
-
-        <div className="doctor-patients-filter">
-
-          <label htmlFor="patient-status-filter">
-            Status
-          </label>
-
-          <select
-            id="patient-status-filter"
-            value={statusFilter}
-            onChange={(event) =>
-              setStatusFilter(event.target.value)
-            }
-          >
-            <option value="All">
-              All Status
-            </option>
-
-            <option value="Active">
-              Active
-            </option>
-
-            <option value="Inactive">
-              Inactive
-            </option>
-          </select>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          PATIENT TABLE
-          ===================================================== */}
-
-      <section className="doctor-patients-card">
-
-        <div className="doctor-patients-card-header">
-
-          <div>
-            <h2>Patient Records</h2>
-
-            <p>
-              Showing {filteredPatients.length} of{" "}
-              {defaultPatients.length} patients
-            </p>
-=======
     phone: "+91 91234 56789",
     bloodGroup: "AB+",
     condition: "General Checkup",
     lastVisit: "14 Sep 2026",
+    status: "Active",
 
     symptoms: [
       "No major symptoms",
@@ -403,67 +199,249 @@ function DoctorPatients() {
 
     nextAppointment: "14 Mar 2027",
   },
+
+  P005: {
+    id: "P005",
+    name: "Mohan Das",
+    age: 48,
+    gender: "Male",
+    village: "Gopalapuram",
+    phone: "+91 98765 43214",
+    bloodGroup: "Unknown",
+    condition: "Heart Problem",
+    lastVisit: "12 Sep 2026",
+    status: "Inactive",
+
+    symptoms: ["Not available"],
+
+    diagnosis:
+      "Detailed consultation information is not available for this patient.",
+
+    vitals: {
+      bloodPressure: "Not available",
+      temperature: "Not available",
+      pulse: "Not available",
+      oxygen: "Not available",
+      weight: "Not available",
+    },
+
+    medicalHistory: "No detailed medical history available.",
+
+    allergies: "Not available",
+
+    medications: [
+      {
+        name: "Not available",
+        dosage: "-",
+        frequency: "-",
+      },
+    ],
+
+    notes: "No additional notes available.",
+
+    nextAppointment: "Not scheduled",
+  },
+
+  P006: {
+    id: "P006",
+    name: "Priya Sharma",
+    age: 31,
+    gender: "Female",
+    village: "Lakshmipur",
+    phone: "+91 98765 43215",
+    bloodGroup: "Unknown",
+    condition: "Fever",
+    lastVisit: "10 Sep 2026",
+    status: "Active",
+
+    symptoms: ["Not available"],
+
+    diagnosis:
+      "Detailed consultation information is not available for this patient.",
+
+    vitals: {
+      bloodPressure: "Not available",
+      temperature: "Not available",
+      pulse: "Not available",
+      oxygen: "Not available",
+      weight: "Not available",
+    },
+
+    medicalHistory: "No detailed medical history available.",
+
+    allergies: "Not available",
+
+    medications: [
+      {
+        name: "Not available",
+        dosage: "-",
+        frequency: "-",
+      },
+    ],
+
+    notes: "No additional notes available.",
+
+    nextAppointment: "Not scheduled",
+  },
 };
+
+const defaultPatients = Object.values(patients);
 
 function DoctorPatients() {
   const navigate = useNavigate();
   const { patientId } = useParams();
 
-  const patient = patients[patientId];
+  /*
+   * =========================================================
+   * PATIENT RECORD PAGE
+   * =========================================================
+   */
 
-  if (!patient) {
-    return (
-      <div className="doctor-patient-page">
-        <div className="doctor-patient-not-found">
-          <div className="not-found-icon">📁</div>
-
-          <h2>Patient Record Not Found</h2>
-
-          <p>
-            The patient record you are looking for does not exist.
-          </p>
-
-          <button
-            className="back-to-patients-button"
-            onClick={() => navigate("/doctor")}
-          >
-            ← Back to Patients
-          </button>
-        </div>
-      </div>
-    );
+  if (patientId) {
+    return <PatientRecord patient={patients[patientId]} />;
   }
 
-  const initials = patient.name
-    .split(" ")
-    .map((name) => name[0])
-    .join("");
+  /*
+   * =========================================================
+   * PATIENT LIST PAGE
+   * =========================================================
+   */
+
+  return <PatientList navigate={navigate} />;
+}
+
+/*
+ * =========================================================
+ * PATIENT LIST
+ * =========================================================
+ */
+
+function PatientList({ navigate }) {
+  const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState("All");
+
+  const filteredPatients = useMemo(() => {
+    const searchText = search.toLowerCase().trim();
+
+    return defaultPatients.filter((patient) => {
+      const matchesSearch =
+        patient.name.toLowerCase().includes(searchText) ||
+        patient.id.toLowerCase().includes(searchText) ||
+        patient.village.toLowerCase().includes(searchText) ||
+        patient.phone.toLowerCase().includes(searchText) ||
+        patient.condition.toLowerCase().includes(searchText);
+
+      const matchesStatus =
+        statusFilter === "All" ||
+        patient.status === statusFilter;
+
+      return matchesSearch && matchesStatus;
+    });
+  }, [search, statusFilter]);
+
+  const activePatients = defaultPatients.filter(
+    (patient) => patient.status === "Active"
+  ).length;
+
+  const inactivePatients = defaultPatients.filter(
+    (patient) => patient.status === "Inactive"
+  ).length;
+
+  const handleViewPatient = (patient) => {
+    navigate(`/doctor/patients/${patient.id}`);
+  };
 
   return (
-    <div className="doctor-patient-page">
+    <div className="doctor-patients-page">
 
       {/* Header */}
 
-      <header className="doctor-patient-header">
+      <section className="doctor-patients-header">
 
-        <div className="doctor-patient-header-left">
+        <div>
+          <h1>Patients</h1>
 
-          <button
-            className="back-button"
-            onClick={() => navigate("/doctor")}
-          >
-            ←
-          </button>
+          <p>
+            View and manage patients assigned to you.
+          </p>
+        </div>
 
-          <div>
-            <h1>Patient Record</h1>
-            <p>Complete clinical case details</p>
->>>>>>> de36534b2ce1479be4337fc0cbd27964977a6b8f
+        <div className="doctor-patients-summary">
+
+          <div className="doctor-patients-summary-item">
+            <strong>{defaultPatients.length}</strong>
+            <span>Total Patients</span>
+          </div>
+
+          <div className="doctor-patients-summary-item">
+            <strong>{activePatients}</strong>
+            <span>Active</span>
+          </div>
+
+          <div className="doctor-patients-summary-item">
+            <strong>{inactivePatients}</strong>
+            <span>Inactive</span>
           </div>
 
         </div>
 
-<<<<<<< HEAD
+      </section>
+
+      {/* Search and Filter */}
+
+      <section className="doctor-patients-controls">
+
+        <div className="doctor-patients-search">
+
+          <span>🔍</span>
+
+          <input
+            type="text"
+            placeholder="Search by name, ID, village, phone or condition..."
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
+
+        </div>
+
+        <div className="doctor-patients-filter">
+
+          <label htmlFor="patient-status-filter">
+            Status
+          </label>
+
+          <select
+            id="patient-status-filter"
+            value={statusFilter}
+            onChange={(event) =>
+              setStatusFilter(event.target.value)
+            }
+          >
+            <option value="All">All Status</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+
+        </div>
+
+      </section>
+
+      {/* Patient Table */}
+
+      <section className="doctor-patients-card">
+
+        <div className="doctor-patients-card-header">
+
+          <div>
+            <h2>Patient Records</h2>
+
+            <p>
+              Showing {filteredPatients.length} of{" "}
+              {defaultPatients.length} patients
+            </p>
+          </div>
+
+        </div>
 
         <div className="doctor-patients-table-wrapper">
 
@@ -481,7 +459,6 @@ function DoctorPatients() {
                 <th>Action</th>
               </tr>
             </thead>
-
 
             <tbody>
 
@@ -518,13 +495,11 @@ function DoctorPatients() {
 
                     </td>
 
-
                     {/* Age */}
 
                     <td>
                       {patient.age}
                     </td>
-
 
                     {/* Gender */}
 
@@ -532,31 +507,25 @@ function DoctorPatients() {
                       {patient.gender}
                     </td>
 
-
                     {/* Village */}
 
                     <td>
                       {patient.village}
                     </td>
 
-
                     {/* Condition */}
 
                     <td>
-
                       <span className="doctor-condition">
                         {patient.condition}
                       </span>
-
                     </td>
-
 
                     {/* Last Visit */}
 
                     <td>
                       {patient.lastVisit}
                     </td>
-
 
                     {/* Status */}
 
@@ -569,7 +538,6 @@ function DoctorPatients() {
                       </span>
 
                     </td>
-
 
                     {/* Action */}
 
@@ -609,8 +577,7 @@ function DoctorPatients() {
                     </h3>
 
                     <p>
-                      Try changing your search or status
-                      filter.
+                      Try changing your search or status filter.
                     </p>
 
                   </td>
@@ -626,7 +593,79 @@ function DoctorPatients() {
         </div>
 
       </section>
-=======
+
+    </div>
+  );
+}
+
+/*
+ * =========================================================
+ * INDIVIDUAL PATIENT RECORD
+ * =========================================================
+ */
+
+function PatientRecord({ patient }) {
+  const navigate = useNavigate();
+
+  if (!patient) {
+    return (
+      <div className="doctor-patient-page">
+
+        <div className="doctor-patient-not-found">
+
+          <div className="not-found-icon">
+            📁
+          </div>
+
+          <h2>
+            Patient Record Not Found
+          </h2>
+
+          <p>
+            The patient record you are looking for does not exist.
+          </p>
+
+          <button
+            className="back-to-patients-button"
+            onClick={() => navigate("/doctor/patients")}
+          >
+            ← Back to Patients
+          </button>
+
+        </div>
+
+      </div>
+    );
+  }
+
+  const initials = patient.name
+    .split(" ")
+    .map((name) => name[0])
+    .join("");
+
+  return (
+    <div className="doctor-patient-page">
+
+      {/* Header */}
+
+      <header className="doctor-patient-header">
+
+        <div className="doctor-patient-header-left">
+
+          <button
+            className="back-button"
+            onClick={() => navigate("/doctor/patients")}
+          >
+            ←
+          </button>
+
+          <div>
+            <h1>Patient Record</h1>
+            <p>Complete clinical case details</p>
+          </div>
+
+        </div>
+
         <div className="doctor-patient-header-actions">
 
           <button
@@ -638,7 +677,9 @@ function DoctorPatients() {
 
           <button
             className="primary-action-button"
-            onClick={() => alert("Opening consultation notes...")}
+            onClick={() =>
+              alert("Opening consultation notes...")
+            }
           >
             ✏️ Add Note
           </button>
@@ -646,7 +687,6 @@ function DoctorPatients() {
         </div>
 
       </header>
-
 
       <main className="doctor-patient-main">
 
@@ -664,7 +704,9 @@ function DoctorPatients() {
 
               <div className="patient-name-row">
 
-                <h2>{patient.name}</h2>
+                <h2>
+                  {patient.name}
+                </h2>
 
                 <span className="patient-id">
                   {patient.id}
@@ -673,7 +715,8 @@ function DoctorPatients() {
               </div>
 
               <p>
-                {patient.age} years old • {patient.gender} •{" "}
+                {patient.age} years old •{" "}
+                {patient.gender} •{" "}
                 {patient.village}
               </p>
 
@@ -711,7 +754,6 @@ function DoctorPatients() {
 
         </section>
 
-
         {/* Main Grid */}
 
         <div className="patient-record-grid">
@@ -731,35 +773,41 @@ function DoctorPatients() {
                   <p>Current consultation information</p>
                 </div>
 
-                <span className="record-icon">📋</span>
+                <span className="record-icon">
+                  📋
+                </span>
 
               </div>
 
-
               <div className="case-section">
 
-                <h3>Reported Symptoms</h3>
+                <h3>
+                  Reported Symptoms
+                </h3>
 
                 <div className="symptom-list">
 
-                  {patient.symptoms.map((symptom, index) => (
-                    <div
-                      className="symptom-item"
-                      key={index}
-                    >
-                      <span>✓</span>
-                      {symptom}
-                    </div>
-                  ))}
+                  {patient.symptoms.map(
+                    (symptom, index) => (
+                      <div
+                        className="symptom-item"
+                        key={index}
+                      >
+                        <span>✓</span>
+                        {symptom}
+                      </div>
+                    )
+                  )}
 
                 </div>
 
               </div>
 
-
               <div className="case-section">
 
-                <h3>Diagnosis / Assessment</h3>
+                <h3>
+                  Diagnosis / Assessment
+                </h3>
 
                 <p className="case-text">
                   {patient.diagnosis}
@@ -768,7 +816,6 @@ function DoctorPatients() {
               </div>
 
             </section>
-
 
             {/* Medical History */}
 
@@ -781,7 +828,9 @@ function DoctorPatients() {
                   <p>Previous medical information</p>
                 </div>
 
-                <span className="record-icon">🩺</span>
+                <span className="record-icon">
+                  🩺
+                </span>
 
               </div>
 
@@ -791,7 +840,9 @@ function DoctorPatients() {
 
               <div className="allergy-box">
 
-                <strong>Allergies</strong>
+                <strong>
+                  Allergies
+                </strong>
 
                 <span>
                   {patient.allergies}
@@ -801,7 +852,6 @@ function DoctorPatients() {
 
             </section>
 
-
             {/* Medications */}
 
             <section className="patient-record-card">
@@ -810,52 +860,58 @@ function DoctorPatients() {
 
                 <div>
                   <h2>Current Medications</h2>
-                  <p>Medication information from the current record</p>
+
+                  <p>
+                    Medication information from the current record
+                  </p>
                 </div>
 
-                <span className="record-icon">💊</span>
+                <span className="record-icon">
+                  💊
+                </span>
 
               </div>
 
               <div className="medication-list">
 
-                {patient.medications.map((medicine, index) => (
+                {patient.medications.map(
+                  (medicine, index) => (
 
-                  <div
-                    className="medication-item"
-                    key={index}
-                  >
+                    <div
+                      className="medication-item"
+                      key={index}
+                    >
 
-                    <div className="medicine-icon">
-                      💊
-                    </div>
+                      <div className="medicine-icon">
+                        💊
+                      </div>
 
-                    <div className="medicine-info">
+                      <div className="medicine-info">
 
-                      <strong>
-                        {medicine.name}
-                      </strong>
+                        <strong>
+                          {medicine.name}
+                        </strong>
 
-                      <span>
-                        {medicine.dosage}
+                        <span>
+                          {medicine.dosage}
+                        </span>
+
+                      </div>
+
+                      <span className="medicine-frequency">
+                        {medicine.frequency}
                       </span>
 
                     </div>
 
-                    <span className="medicine-frequency">
-                      {medicine.frequency}
-                    </span>
-
-                  </div>
-
-                ))}
+                  )
+                )}
 
               </div>
 
             </section>
 
           </div>
-
 
           {/* Right Column */}
 
@@ -872,7 +928,9 @@ function DoctorPatients() {
                   <p>Recorded during last visit</p>
                 </div>
 
-                <span className="record-icon">❤️</span>
+                <span className="record-icon">
+                  ❤️
+                </span>
 
               </div>
 
@@ -917,7 +975,6 @@ function DoctorPatients() {
 
             </section>
 
-
             {/* Doctor Notes */}
 
             <section className="patient-record-card">
@@ -929,7 +986,9 @@ function DoctorPatients() {
                   <p>Important observations</p>
                 </div>
 
-                <span className="record-icon">📝</span>
+                <span className="record-icon">
+                  📝
+                </span>
 
               </div>
 
@@ -938,7 +997,6 @@ function DoctorPatients() {
               </div>
 
             </section>
-
 
             {/* Appointment */}
 
@@ -950,7 +1008,9 @@ function DoctorPatients() {
 
               <div>
 
-                <span>Next Appointment</span>
+                <span>
+                  Next Appointment
+                </span>
 
                 <strong>
                   {patient.nextAppointment}
@@ -968,7 +1028,6 @@ function DoctorPatients() {
 
         </div>
 
-
         {/* Footer */}
 
         <footer className="doctor-patient-footer">
@@ -984,7 +1043,6 @@ function DoctorPatients() {
         </footer>
 
       </main>
->>>>>>> de36534b2ce1479be4337fc0cbd27964977a6b8f
 
     </div>
   );
