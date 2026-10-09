@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { prisma } from '../../config/prisma.js';
+import { requireAuth } from '../../middleware/auth.middleware.js';
+import { allowRoles } from '../../middleware/role.middleware.js';
+import { asyncHandler, AppError } from '../../utils/errors.js';
+const router=Router(); router.use(requireAuth);
+router.get('/',allowRoles('ADMIN','DOCTOR'),asyncHandler(async(_req,res)=>{const healthWorkers=await prisma.healthWorker.findMany({include:{user:{select:{id:true,name:true,email:true,phone:true,isActive:true}}},take:200});res.json({healthWorkers});}));
+router.get('/me',allowRoles('HEALTH_WORKER'),asyncHandler(async(req,res)=>{const healthWorker=await prisma.healthWorker.findUnique({where:{userId:req.user.id},include:{user:{select:{id:true,name:true,email:true}}}});if(!healthWorker)throw new AppError('Health worker profile not found',404);res.json({healthWorker});}));
+router.post('/',allowRoles('ADMIN'),asyncHandler(async(req,res)=>{const {userId,area}=req.body;if(!userId)throw new AppError('userId is required',400);const user=await prisma.user.findUnique({where:{id:userId}});if(!user||user.role!=='HEALTH_WORKER')throw new AppError('A HEALTH_WORKER user is required',400);const healthWorker=await prisma.healthWorker.create({data:{userId,area}});res.status(201).json({healthWorker});}));
+export default router;

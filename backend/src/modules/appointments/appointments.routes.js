@@ -1,0 +1,12 @@
+import { Router } from 'express';
+import { z } from 'zod';
+import { prisma } from '../../config/prisma.js';
+import { requireAuth } from '../../middleware/auth.middleware.js';
+import { allowRoles } from '../../middleware/role.middleware.js';
+import { asyncHandler, AppError } from '../../utils/errors.js';
+const router=Router(); router.use(requireAuth);
+const createSchema=z.object({doctorId:z.string().min(1),scheduledAt:z.iso.datetime(),reason:z.string().max(1000).optional()});
+router.get('/',asyncHandler(async(req,res)=>{const where=req.user.role==='PATIENT'?{patient:{userId:req.user.id}}:req.user.role==='DOCTOR'?{doctor:{userId:req.user.id}}:{};if(!['ADMIN','DOCTOR','PATIENT','HEALTH_WORKER'].includes(req.user.role))throw new AppError('Forbidden',403);const appointments=await prisma.appointment.findMany({where,include:{patient:{include:{user:{select:{id:true,name:true}}}},doctor:{include:{user:{select:{id:true,name:true}}}}},orderBy:{scheduledAt:'asc'},take:200});res.json({appointments});}));
+router.post('/',allowRoles('PATIENT'),asyncHandler(async(req,res)=>{const input=createSchema.parse(req.body);const patient=await prisma.patient.findUnique({where:{userId:req.user.id}});if(!patient)throw new AppError('Patient profile not found',404);const doctor=await prisma.doctor.findUnique({where:{id:input.doctorId},include:{user:true}});if(!doctor||!doctor.user.isActive)throw new AppError('Doctor not found',404);const scheduledAt=new Date(input.scheduledAt);if(scheduledAt<=new Date())throw new AppError('Appointment must be in the future',400);const appointment=await prisma.appointment.create({data:{patientId:patient.id,doctorId:doctor.id,scheduledAt,reason:input.reason}});res.status(201).json({appointment});}));
+router.patch('/:id/status',allowRoles('ADMIN','DOCTOR'),asyncHandler(async(req,res)=>{const schema=z.object({status:z.enum(['CONFIRMED','COMPLETED','CANCELLED'])});const {status}=schema.parse(req.body);const existing=await prisma.appointment.findUnique({where:{id:req.params.id},include:{doctor:true}});if(!existing)throw new AppError('Appointment not found',404);if(req.user.role==='DOCTOR'&&existing.doctor.userId!==req.user.id)throw new AppError('Forbidden',403);const appointment=await prisma.appointment.update({where:{id:existing.id},data:{status}});res.json({appointment});}));
+export default router;

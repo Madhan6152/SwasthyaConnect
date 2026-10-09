@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { prisma } from '../../config/prisma.js';
+import { requireAuth } from '../../middleware/auth.middleware.js';
+import { allowRoles } from '../../middleware/role.middleware.js';
+import { asyncHandler, AppError } from '../../utils/errors.js';
+const router=Router(); router.use(requireAuth);
+router.get('/', asyncHandler(async(_req,res)=>{ const doctors=await prisma.doctor.findMany({include:{user:{select:{id:true,name:true,email:true,phone:true,isActive:true}}},where:{user:{isActive:true}},take:200,orderBy:{createdAt:'desc'}}); res.json({doctors}); }));
+router.get('/me',allowRoles('DOCTOR'),asyncHandler(async(req,res)=>{const doctor=await prisma.doctor.findUnique({where:{userId:req.user.id},include:{user:{select:{id:true,name:true,email:true,phone:true}}}});if(!doctor)throw new AppError('Doctor profile not found',404);res.json({doctor});}));
+router.post('/',allowRoles('ADMIN'),asyncHandler(async(req,res)=>{const {userId,specialization,licenseNumber,availability}=req.body;if(!userId)throw new AppError('userId is required',400);const user=await prisma.user.findUnique({where:{id:userId}});if(!user)throw new AppError('User not found',404);if(user.role!=='DOCTOR')throw new AppError('User must have DOCTOR role',400);const doctor=await prisma.doctor.create({data:{userId,specialization,licenseNumber,availability}});res.status(201).json({doctor});}));
+export default router;

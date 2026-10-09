@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { z } from 'zod';
+import { prisma } from '../../config/prisma.js';
+import { requireAuth } from '../../middleware/auth.middleware.js';
+import { allowRoles } from '../../middleware/role.middleware.js';
+import { asyncHandler, AppError } from '../../utils/errors.js';
+const router=Router();router.use(requireAuth);
+router.get('/',asyncHandler(async(req,res)=>{const where=req.user.role==='PATIENT'?{patient:{userId:req.user.id}}:req.user.role==='DOCTOR'?{doctor:{userId:req.user.id}}:{};const referrals=await prisma.referral.findMany({where,include:{patient:{include:{user:{select:{id:true,name:true}}}},doctor:{include:{user:{select:{id:true,name:true}}}}},orderBy:{createdAt:'desc'},take:200});res.json({referrals});}));
+router.post('/',allowRoles('DOCTOR','ADMIN'),asyncHandler(async(req,res)=>{const input=z.object({patientId:z.string().min(1),doctorId:z.string().min(1),reason:z.string().min(3).max(1000),notes:z.string().max(2000).optional()}).parse(req.body);if(req.user.role==='DOCTOR'){const ownDoctor=await prisma.doctor.findUnique({where:{userId:req.user.id}});if(!ownDoctor||ownDoctor.id!==input.doctorId)throw new AppError('Doctors can only create referrals under their own profile',403);}const referral=await prisma.referral.create({data:input});res.status(201).json({referral});}));
+router.patch('/:id/status',allowRoles('DOCTOR','ADMIN'),asyncHandler(async(req,res)=>{const {status}=z.object({status:z.enum(['ACCEPTED','COMPLETED','REJECTED'])}).parse(req.body);const current=await prisma.referral.findUnique({where:{id:req.params.id},include:{doctor:true}});if(!current)throw new AppError('Referral not found',404);if(req.user.role==='DOCTOR'&&current.doctor.userId!==req.user.id)throw new AppError('Forbidden',403);const referral=await prisma.referral.update({where:{id:current.id},data:{status}});res.json({referral});}));
+export default router;

@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role { ADMIN DOCTOR PATIENT HEALTH_WORKER }
+enum AppointmentStatus { PENDING CONFIRMED COMPLETED CANCELLED }
+enum RequestStatus { OPEN IN_PROGRESS RESOLVED REJECTED }
+enum ReferralStatus { PENDING ACCEPTED COMPLETED REJECTED }
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(PATIENT)
+  phone        String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  patient      Patient?
+  doctor       Doctor?
+  healthWorker HealthWorker?
+  auditLogs    AuditLog[]
+}
+
+model Patient {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  dateOfBirth DateTime?
+  address     String?
+  emergencyContact String?
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appointments Appointment[]
+  referrals   Referral[]
+  requests    HelpRequest[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Doctor {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  specialization String?
+  licenseNumber  String?  @unique
+  availability   Json?
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appointments   Appointment[]
+  referrals      Referral[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model HealthWorker {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  area        String?
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  requests    HelpRequest[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Appointment {
+  id        String            @id @default(cuid())
+  patientId String
+  doctorId  String
+  scheduledAt DateTime
+  reason    String?
+  status    AppointmentStatus @default(PENDING)
+  notes     String?
+  patient   Patient @relation(fields: [patientId], references: [id], onDelete: Restrict)
+  doctor    Doctor  @relation(fields: [doctorId], references: [id], onDelete: Restrict)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([patientId, scheduledAt])
+  @@index([doctorId, scheduledAt])
+}
+
+model Referral {
+  id        String         @id @default(cuid())
+  patientId String
+  doctorId  String
+  reason    String
+  notes     String?
+  status    ReferralStatus @default(PENDING)
+  patient   Patient @relation(fields: [patientId], references: [id], onDelete: Restrict)
+  doctor    Doctor  @relation(fields: [doctorId], references: [id], onDelete: Restrict)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model HelpRequest {
+  id             String        @id @default(cuid())
+  patientId      String
+  healthWorkerId String?
+  title          String
+  description    String
+  status         RequestStatus @default(OPEN)
+  patient        Patient @relation(fields: [patientId], references: [id], onDelete: Restrict)
+  healthWorker   HealthWorker? @relation(fields: [healthWorkerId], references: [id], onDelete: SetNull)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String
+  entity    String
+  entityId  String?
+  createdAt DateTime @default(now())
+  user      User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  @@index([userId, createdAt])
+}

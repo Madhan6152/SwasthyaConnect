@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { prisma } from '../../config/prisma.js';
+import { requireAuth } from '../../middleware/auth.middleware.js';
+import { allowRoles } from '../../middleware/role.middleware.js';
+import { asyncHandler, AppError } from '../../utils/errors.js';
+const router = Router(); router.use(requireAuth);
+router.get('/me', asyncHandler(async(req,res)=>{ const patient=await prisma.patient.findUnique({where:{userId:req.user.id},include:{user:{select:{id:true,name:true,email:true,phone:true}}}}); if(!patient) throw new AppError('Patient profile not found',404); res.json({patient}); }));
+router.get('/', allowRoles('ADMIN','DOCTOR','HEALTH_WORKER'), asyncHandler(async(_req,res)=>{ const patients=await prisma.patient.findMany({include:{user:{select:{id:true,name:true,email:true,phone:true}}},take:200,orderBy:{createdAt:'desc'}}); res.json({patients}); }));
+router.get('/:id', asyncHandler(async(req,res)=>{ const isPrivileged=['ADMIN','DOCTOR','HEALTH_WORKER'].includes(req.user.role); const patient=await prisma.patient.findUnique({where:{id:req.params.id},include:{user:{select:{id:true,name:true,email:true,phone:true}}}}); if(!patient) throw new AppError('Patient not found',404); if(!isPrivileged && patient.userId!==req.user.id) throw new AppError('Forbidden',403); res.json({patient}); }));
+export default router;

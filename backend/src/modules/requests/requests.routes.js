@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { z } from 'zod';
+import { prisma } from '../../config/prisma.js';
+import { requireAuth } from '../../middleware/auth.middleware.js';
+import { allowRoles } from '../../middleware/role.middleware.js';
+import { asyncHandler, AppError } from '../../utils/errors.js';
+const router=Router();router.use(requireAuth);
+router.get('/',asyncHandler(async(req,res)=>{const where=req.user.role==='PATIENT'?{patient:{userId:req.user.id}}:req.user.role==='HEALTH_WORKER'?{healthWorker:{userId:req.user.id}}:{};const requests=await prisma.helpRequest.findMany({where,include:{patient:{include:{user:{select:{id:true,name:true}}}},healthWorker:{include:{user:{select:{id:true,name:true}}}}},orderBy:{createdAt:'desc'},take:200});res.json({requests});}));
+router.post('/',allowRoles('PATIENT'),asyncHandler(async(req,res)=>{const input=z.object({title:z.string().min(3).max(120),description:z.string().min(3).max(3000)}).parse(req.body);const patient=await prisma.patient.findUnique({where:{userId:req.user.id}});if(!patient)throw new AppError('Patient profile not found',404);const request=await prisma.helpRequest.create({data:{...input,patientId:patient.id}});res.status(201).json({request});}));
+router.patch('/:id/status',allowRoles('ADMIN','HEALTH_WORKER'),asyncHandler(async(req,res)=>{const input=z.object({status:z.enum(['IN_PROGRESS','RESOLVED','REJECTED']),healthWorkerId:z.string().optional()}).parse(req.body);const current=await prisma.helpRequest.findUnique({where:{id:req.params.id}});if(!current)throw new AppError('Request not found',404);let healthWorkerId=current.healthWorkerId;if(req.user.role==='HEALTH_WORKER'){const worker=await prisma.healthWorker.findUnique({where:{userId:req.user.id}});if(!worker)throw new AppError('Health worker profile not found',404);healthWorkerId=worker.id;}else if(input.healthWorkerId){healthWorkerId=input.healthWorkerId;}const request=await prisma.helpRequest.update({where:{id:current.id},data:{status:input.status,healthWorkerId}});res.json({request});}));
+export default router;
